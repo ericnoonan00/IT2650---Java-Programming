@@ -1,22 +1,27 @@
 package com.company;
 
 public class Helicopter {
-    private double maxFuel;
+    private final double maxFuel;
     private double currentFuel;
+    private final double mpg;
     private Location currentCity;
     private Location targetCity;
 
-    public Helicopter(Location startingCity){
-        maxFuel = 100;
-        currentFuel = 80;
-        this.currentCity = startingCity;
+    public Helicopter(double maxFuel ,double mpg,Location startingCityCleveland){
+        this.maxFuel = maxFuel;
+        this.currentFuel = this.maxFuel;
+        this.mpg = mpg;
+        this.currentCity = startingCityCleveland;
     }
 
     public double getMaxFuel() { return maxFuel; }
     public void showMaxFuel() { System.out.println("MAX FUEL: " + getMaxFuel());}
 
     public double getCurrentFuel() { return currentFuel; }
-    public void showCurrentFuel() { System.out.println("Your fuel is currently at: " + getCurrentFuel()); }
+    public void showCurrentFuel() { System.out.println("CURRENT FUEL: " + getCurrentFuel()); }
+
+    public double getMpg() { return mpg; }
+    public void showMpg() { System.out.println("MPG: " + getMpg()); }
 
     public Location getCurrentCity() { return currentCity; }
     public void showCurrentCity() { System.out.println("You are currently located in " + getCurrentCity());}
@@ -35,7 +40,12 @@ public class Helicopter {
         }
     }
 
+
+
     public void travel(Location targetCity){
+        double distance = targetCity.getDistBetweenCities(this.currentCity, targetCity);
+        this.currentFuel = this.currentFuel - (distance / mpg); //pretty sure that's how you calculate that lol
+
         this.currentCity = targetCity;
     }
 }
