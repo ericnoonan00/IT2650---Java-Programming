@@ -1,1 +1,1 @@
-# IT2650---Java-Programming
+# Java Programming - IT 2650
