@@ -1,0 +1,29 @@
+Classes:
+    Helicopter -
+        Properties:
+            maxFuel - how much fuel the copter CAN have
+                     - DATA TYPE: Double
+            currentFuel - how much fuel the copter DOES have
+                         - DATA TYPE: Double
+            Location - what city the copter is in
+        Constructor:
+            sets the max fuel and fills the gas to the max fuel limit. also sets location to Cleveland(city[0])
+        Methods:
+            flyToLocation(Location ...) - checks to see if you have enough fuel and if u have it then you fly away. if you can't
+            refuel() - fills fuel up to the maxFuel amount if you are in a location with a gas station.
+            getFuel() - returns how much fuel you have
+
+
+    Location -
+        Would be useful to set up an array of locations instead of individual objects
+        Properties:
+            name - city name
+            coordinates - x and y
+            hasFuel - boolean
+        Constructor:
+            take x and y parameters and a city name parameter
+        Methods:
+            getters - x, y, hasFuel, and name
+            getDistance - returns the distance between two locations
+                        - this would be passed another object of the Location Class
+                            - i.e. getDistance(Location Tokyo){...}
